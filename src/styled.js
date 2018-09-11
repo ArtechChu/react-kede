@@ -1,4 +1,4 @@
-import {injectGlobal} from 'styled-components';
+import styled, {injectGlobal} from 'styled-components';
 
 injectGlobal`
 html {
@@ -158,4 +158,14 @@ template {
 [hidden] {
     display:none
 }
+`
+
+export const Wrapper = styled.div`
+    max-width: 750px;
+    min-width: 320px;
+    margin: 0 auto;
+    padding-top: 0;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 80px;
 `
