@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import footerNavImg from '../../assets/img/footer_nav.png';
+import { Link } from 'react-router-dom';
+
 export const BottomWrapper = styled.div`
     &.foot-menu{
         background: #ffffff;
@@ -44,7 +46,9 @@ export const Item = styled.li`
     } */
 `;
 
-export const ItemLink = styled.a`
+export const ItemLink = styled(Link).attrs({
+    to: props => props.to
+})`
     display: block;
     width: 100%;
     height: 100%;
