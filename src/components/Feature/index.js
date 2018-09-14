@@ -11,14 +11,10 @@ class Feature extends Component {
 
     componentDidMount() {
         axios.get("/api/feature.json").then(res => {
-            console.log(res.data.data)
-
             this.setState({
                 content: res.data.data
             })
         });
-
-
     }
 }
 
