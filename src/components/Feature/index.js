@@ -1,8 +1,25 @@
-import React, { Component } from 'react'
- class Feature extends Component{
-     render(){
-        return <div style={{height:"600px", margin:"50% auto"}}>这里是首页</div>
-     }
- }
+import React, { Component } from 'react';
+// import http from '../../tools/HttpUtility';
+import axios from 'axios';
+class Feature extends Component {
+    state = {
+        content: "这里是首页"
+    }
+    render() {
+        return <div dangerouslySetInnerHTML={{ __html: this.state.content }} />
+    }
 
- export default Feature;
+    componentDidMount() {
+        axios.get("/api/feature.json").then(res => {
+            console.log(res.data.data)
+
+            this.setState({
+                content: res.data.data
+            })
+        });
+
+
+    }
+}
+
+export default Feature;
