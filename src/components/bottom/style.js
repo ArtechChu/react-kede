@@ -84,3 +84,18 @@ export const ItemLink = styled(Link).attrs({
         background-position: 0 -140px;
     };
 `;
+
+export const CartNum = styled.i`
+    &.msg-count{
+        background: #ff7c7c;
+        font-size: 10px;
+        padding: 0 5px;
+        border-radius: 8px;
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        margin-left: 4px;
+        font-style: normal;
+        color: #fff;
+    }
+`
