@@ -6,6 +6,7 @@ import Feature from './components/Feature';
 import Duwu from './components/Duwu';
 import User from './components/User';
 import Cart from './components/Cart';
+import Detail from './components/Detail';
 class App extends Component {
   render() {
     return (
@@ -14,6 +15,8 @@ class App extends Component {
           <Header />
 
           <Fragment>
+            <Route path="/:seocode([a-zA-z]*\d+).html" exact component={Detail} />
+
             <Route path="/" exact component={Feature} />
             <Route path="/Duwu" exact component={Duwu} />
             <Route path="/User" exact component={User} />
