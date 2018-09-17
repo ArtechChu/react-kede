@@ -35,5 +35,45 @@ import './style.js';
 ```
 
 # header 组件布局
+路径：src/components/header
+
+新增文件：
+
+- index.js：用于页面布局。
+- style.js：页面样式，使用"styled-components"模块进行布局处理。
+
 
 # bottom 组件布局
+路径：src/components/bottom
+
+新增文件：
+
+- index.js：用于页面布局
+- style.js：页面样式，使用"styled-components"模块进行布局处理。
+
+
+# 使用 react-router-dom 进行页面路由
+## 安装：
+```javascript
+npm install --save react-router-dom
+```
+
+## 使用：
+App.js
+```javascript
+import { BrowserRouter, Route } from 'react-router-dom';
+...
+<BrowserRouter>
+  <Route /> 
+</BrowserRouter>
+```
+> 需要注意，Route标签需要有一个根节点
+> 
+> Route所用与的属性：path，exact，render，component等。
+
+
+## 页面使用：
+通过 \<Link\>标签进行路由跳转
+> Link所用与的属性：to。
+
+# 搜搜页面
