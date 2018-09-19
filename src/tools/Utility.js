@@ -9,9 +9,9 @@ const getWindowScroll = () => {
     };
 }
 
-export const getWindowScrollFromSession = (path) => {
+const getWindowScrollFromSession = (path) => {
     let info = sessionStorage.getItem(`scroll-${path}`);
-    if(!info) return null;
+    if (!info) return null;
     return JSON.parse(info);
 }
 
@@ -20,9 +20,9 @@ export const setWindowScrollToSession = (path) => {
     sessionStorage.setItem(`scroll-${path}`, JSON.stringify(scrollInfo));
 }
 
-export const autoWindowScroll = (path)=>{
+export const autoWindowScroll = (path) => {
     let scrollInfo = getWindowScrollFromSession(path);
-    if(!scrollInfo) return;
-    window.scrollTo(scrollInfo.x,scrollInfo.y);
+    if (!scrollInfo) return;
+    window.scrollTo(scrollInfo.x, scrollInfo.y);
 }
 

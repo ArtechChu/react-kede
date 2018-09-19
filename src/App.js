@@ -37,6 +37,9 @@ class App extends Component {
       </Fragment>
     );
   }
+
+  componentDidMount() {
+  }
 }
 
 export default App;
