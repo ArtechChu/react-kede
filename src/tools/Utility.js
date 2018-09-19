@@ -23,7 +23,6 @@ export const setWindowScrollToSession = (path) => {
 export const autoWindowScroll = (path)=>{
     let scrollInfo = getWindowScrollFromSession(path);
     if(!scrollInfo) return;
-    console.log("auto scroll:%o",scrollInfo);
     window.scrollTo(scrollInfo.x,scrollInfo.y);
 }
 

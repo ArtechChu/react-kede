@@ -16,16 +16,12 @@ class Feature extends Component {
 
     componentDidMount() {
         axios.get("/api/feature.json").then(res => {
-            console.log(this.props.location.pathname)
             this.setState(() => ({
                 content: res.data.data
             }), () => {
-                // autoWindowScroll(this.props.location.pathname)
                 let path = this.props.location.pathname;
                 let scrollInfo = getWindowScrollFromSession(path);
                 if (!scrollInfo) return;
-                console.log("auto scroll:%o", typeof scrollInfo.y);
-                
                 window.scrollTo(scrollInfo.x, scrollInfo.y);
             });
         });
