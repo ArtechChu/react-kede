@@ -75,6 +75,24 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 ## 页面使用：
 通过 \<Link\>标签进行路由跳转
-> Link所用与的属性：to。
+> Link所用到的属性：to。
 
-# 搜搜页面
+# redux 
+
+## 为什么要用redux？
+react的数据传递是单向的：
+
+![](https://img2018.cnblogs.com/blog/1101407/201809/1101407-20180925105021714-34921900.gif)
+>通过props属性进行数据的传递
+
+
+非父子组件之间共享 state
+
+![](https://img2018.cnblogs.com/blog/1101407/201809/1101407-20180925105319011-1739129400.gif)
+
+
+使用redux之后：数据传递不再是单向、线性的，所有组件的数据都会放到 Store 中，直接下放到对应需要更新的组件中。
+
+![](https://img2018.cnblogs.com/blog/1101407/201809/1101407-20180925105428122-702281697.gif)
+
+# 搜索页面
