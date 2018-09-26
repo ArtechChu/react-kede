@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
-import { getWindowScrollFromSession } from '../../tools/Utility';
-class ScrollRestoration extends Component {
+import React, { Component } from 'react'
+import {withRouter} from 'react-router-dom';
+
+class ScrollToTopOnMount extends Component {
     componentDidMount() {
-        let autoScrollToInfo = getWindowScrollFromSession(this.props.path);
-        if (autoScrollToInfo) {
-            window.scrollTo(autoScrollToInfo.x, autoScrollToInfo.y);
-        }
+        window.scrollTo(0, 0)
     }
+
     render() {
-        return (null);
+        return null;
     }
 }
 
-export default ScrollRestoration;
+export default withRouter(ScrollToTopOnMount);

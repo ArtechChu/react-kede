@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import {
     HeaderWrapper,
     Mask,
@@ -23,5 +24,11 @@ class Header extends Component {
     }
 }
 
-
-export default Header;
+const mapStateToProps = (state) => {
+    console.log(state);
+    return {
+      isShowHeader: state.showHeader,
+      isShowFooter: state.showFooter,
+    }
+  }
+export default connect(mapStateToProps,null)(Header);

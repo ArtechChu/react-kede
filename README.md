@@ -8,6 +8,7 @@ create-react-app kede.m
 ## 删除多余的文件：
 如：
 - src/registerServiceWorker.js
+  - 能够允许你在第一次访问成功之后，本地会有完整的缓存（相当于把网页当成App了）。第二次再访问的时候，就算断网了，依然可以打开页面
 - src/logo.svg
 - src/index.css
 - src/App.test.js
@@ -95,4 +96,46 @@ react的数据传递是单向的：
 
 ![](https://img2018.cnblogs.com/blog/1101407/201809/1101407-20180925105428122-702281697.gif)
 
+## redux 介绍：
+redux= reducer + flux
+redux是一个数据层框架。其设计理念：所有的数据放在 store 里管理,一个组件改变了store中的内容,其他组件就会感知到store的这个变化,从而直接从store中获取数据来进行更新。
+
+## redux 工作流：
+![](https://img2018.cnblogs.com/blog/1101407/201809/1101407-20180925141104597-2088633436.png)
+
+## 使用 react-redux来简化
+项目地址：https://github.com/reduxjs/react-redux
+### 使用步骤：
+1. 安装
+```shell
+npm install --save react-redux
+```
+2. 在项目根目录下创建store文件夹，并在其内创建reducer.js，index.jS
+   
+![](https://img2018.cnblogs.com/blog/1101407/201809/1101407-20180926160444487-702449478.png)
+
+3. 在入口文件中引入 Provider组件，作为顶层App的分发点，在相关的页面组件中使用connect进行组件跟redux的store进行连接。
+/index.js
+```javascript
+import { Provider } from 'react-redux';
+import store from './store/index.js';
+const container = (
+    <Provider store={store}>
+        <Wrapper><App /></Wrapper>
+    </Provider>
+)
+ReactDOM.render(container, document.getElementById('root'));
+```
+components/自定义组件/index.js
+```javascript
+import {connect} from 'react-redux';
+...
+class Header extends Component {
+    render() {
+        ...
+    }
+}
+...
+export default connect(null,null)(Header);
+```
 # 搜索页面
