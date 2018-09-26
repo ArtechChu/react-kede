@@ -1,0 +1,2 @@
+export const SHOW_HEADER = "HEADER/SHOW_HEADER";
+export const HIDE_HEADER = "HEADER/HIDE_HEADER";

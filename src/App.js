@@ -17,7 +17,7 @@ class App extends Component {
         <BrowserRouter>
           <div className="App">
             <div>
-              {this.props.isShowHeader ? <Header /> : null}
+            <Header />
               <Fragment>
                 <Route path="/:seocode([a-zA-z]*\d+).html" exact component={Detail} />
                 <Route path="/" exact component={Feature} />
@@ -27,7 +27,7 @@ class App extends Component {
                 <Route path="/Search" exact component={Search} />
               </Fragment>
 
-              {this.props.isShowFooter ? <Footer /> : null}
+              <Footer />
 
             </div>
 
@@ -41,12 +41,5 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  console.log(state);
-  return {
-    isShowHeader: state.showHeader,
-    isShowFooter: state.showFooter,
-  }
-}
 
-export default connect(mapStateToProps, null)(App);
+export default App;

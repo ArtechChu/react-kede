@@ -1,15 +1,5 @@
-import {fromJS} from 'immutable';
-// const defaultState = fromJS({
-//     showHeader:true,
-//     showFooter:true
-// });
-
-const defaultState = {
-    showHeader:true,
-    showFooter:true
-}
-
-export default (state = defaultState, action)=>{
-    state.showHeader = true;
-    return state;
-}
+import { combineReducers } from 'redux';
+import { reducer as headerReducer } from '../components/header/store';
+export default combineReducers({
+    header: headerReducer
+});

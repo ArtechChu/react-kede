@@ -114,6 +114,30 @@ npm install --save react-redux
    
 ![](https://img2018.cnblogs.com/blog/1101407/201809/1101407-20180926160444487-702449478.png)
 
+/store/reducer.js
+```javascript
+import {fromJS} from 'immutable';
+
+const defaultState = {
+    showHeader:true,
+    showFooter:true
+}
+
+export default (state = defaultState, action)=>{
+    return state;
+}
+```
+
+/store/index.js
+```javascript
+import { createStore, compose } from 'redux';
+import reducer from './reducer';
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducer, composeEnhancers());
+export default store;
+```
+
 3. 在入口文件中引入 Provider组件，作为顶层App的分发点，在相关的页面组件中使用connect进行组件跟redux的store进行连接。
 /index.js
 ```javascript
@@ -138,4 +162,17 @@ class Header extends Component {
 ...
 export default connect(null,null)(Header);
 ```
+
+# 重构Header，将store放到组件自身内部中
+## 操作步骤：
+1. 在Header组件文件夹中，创建store文件夹，并在其内创建 index.js，reducer.js，actionCreators.js，actionTypes.js等
+2. 调整根目录/store/reducer.js
+```javascript
+import { combineReducers } from 'redux';
+import { reducer as headerReducer } from '../components/header/store';
+export default combineReducers({
+    header: headerReducer
+});
+```
+
 # 搜索页面

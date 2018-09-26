@@ -1,6 +1,20 @@
-import { createStore, compose } from 'redux';
+import { createStore, applyMiddleware ,  compose } from 'redux';
+import thunk from 'redux-thunk';
 import reducer from './reducer';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducer, composeEnhancers());
+const composeEnhancers =
+typeof window === 'object' &&
+window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+// Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
+}) : compose;
+
+const enhancer = composeEnhancers(
+applyMiddleware(thunk), //注意，这里的thunk不是数组
+// other store enhancers if any
+);
+const store = createStore(
+reducer,
+enhancer
+);
 export default store;
